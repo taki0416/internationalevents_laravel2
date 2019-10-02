@@ -19,14 +19,14 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->string('sponsor_phone');
-            $table->dateTime('fast_login');
-            $table->integer('created_id');
-            $table->integer('updated_id');
             $table->dateTime('created_at');
             $table->dateTime('updated_at');
-            $table->integer('deleted_id');
-            $table->dateTime('deleted_at');
+            $table->string('sponsor_phone')->nullable();
+            $table->dateTime('fast_login')->nullable();
+            $table->integer('created_id')->nullable();
+            $table->integer('updated_id')->nullable();
+            $table->integer('deleted_id')->nullable();
+            $table->dateTime('deleted_at')->nullable();
 
 
             
