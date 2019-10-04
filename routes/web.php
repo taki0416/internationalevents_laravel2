@@ -21,5 +21,8 @@ Route::get('/', 'TopController@index');
 
 Route::get('/user_top', 'User_topController@index');
 
+//お問い合わせフォーム
+Route::get('/contact', 'ContactController@input');
 
+Route::post('/contact/confirm', 'ContactController@confirm')->name('contact.confirm');
 
