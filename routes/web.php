@@ -15,14 +15,20 @@
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-
-
 Route::get('/', 'TopController@index');
 
-Route::get('/user_top', 'User_topController@index');
+
 
 //お問い合わせフォーム
 Route::get('/contact', 'ContactController@input');
+//お問い合わせ確認画面
+Route::post('/confirm', 'ContactController@confirm')->name('contact.confirm');
+//お問い合わせ完了画面
+Route::get('/finish', 'ContactController@finish')->name('contact.finish');
 
-Route::post('/contact/confirm', 'ContactController@confirm')->name('contact.confirm');
+
+//主催者のTOPページ画面
+Route::get('/user_top', 'User_topController@index');
+
+
 
