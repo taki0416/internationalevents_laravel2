@@ -17,7 +17,8 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/', 'TopController@index');
 
-
+//イベント一覧画面
+Route::get('/events', 'EventsController@index');
 
 //お問い合わせフォーム
 Route::get('/contact', 'ContactController@input');
@@ -28,7 +29,13 @@ Route::get('/finish', 'ContactController@finish')->name('contact.finish');
 
 
 //主催者のTOPページ画面
-Route::get('/user_top', 'User_topController@index');
+Route::group(['middleware' => 'auth'], function(){
+    Route::get('/user_top', 'User_topController@index');
+    Route::get('/event_input','User_topController@eventInput');
+});
+
+
+
 
 
 
