@@ -22,8 +22,11 @@ Route::get('/events', 'EventsController@index');
 Route::get('/events_show{id}', 'EventsController@show')->name('event.show');
 
 //イベント参加申し込みフォーム
-Route::get('/events_form{id}', 'EventsController@form')->name('event.form');
-Route::post('/confirm{id}', 'EventsController@confirm')->name('event.confirm');
+Route::get('/events_form/{id}', 'EventsController@form')->name('event.form');
+Route::post('/events_confirm/{id}', 'EventsController@confirm')->name('event.confirm');
+Route::post('/events_finish', 'EventsController@finish')->name('event.finish');
+
+
 
 
 
