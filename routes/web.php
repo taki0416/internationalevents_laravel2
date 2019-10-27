@@ -53,7 +53,16 @@ Route::post('register/main_register', 'Auth\RegisterController@mainRegister')->n
 //主催者のTOPページ画面
 Route::group(['middleware' => 'auth'], function(){
     Route::get('/user_top', 'User_topController@index');
+    Route::get('/event_list','User_topController@list');
+    Route::get('/event_profile','User_topController@profile')->name('user.event_profile');
     Route::get('/event_input','User_topController@eventInput');
+    Route::post('/event_input_confirm', 'User_topController@eventInputConfirm')->name('event.input.confirm');
+
+    //イベントの詳細
+    Route::get('/user_event_show{id}','User_topController@eventShow')->name('user.event.show');
+    //イベントの編集
+    Route::get('/user_event_edit/id={id}','User_topController@edit')->name('user.event.edit');
+    Route::post('/user_top','User_topController@update')->name('user.event.update');
 });
 
 
