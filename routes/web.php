@@ -14,12 +14,15 @@
 
 Auth::routes();
 
+Route::get('/test', 'TopController@test');
+
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/', 'TopController@index');
 
 //イベント一覧画面
 Route::get('/events', 'EventsController@index');
 Route::get('/events_show{id}', 'EventsController@show')->name('event.show');
+Route::post('/events','EventsController@search')->name('event.search');
 
 //イベント参加申し込みフォーム
 Route::get('/events_form/{id}', 'EventsController@form')->name('event.form');
@@ -60,6 +63,10 @@ Route::group(['middleware' => 'auth'], function(){
 
     //イベントの詳細
     Route::get('/user_event_show{id}','User_topController@eventShow')->name('user.event.show');
+    Route::get('/user_event_show{id}/export','User_topController@export')->name('user.event.export');
+    
+
+    
     //イベントの編集
     Route::get('/user_event_edit/id={id}','User_topController@edit')->name('user.event.edit');
     Route::post('/user_top','User_topController@update')->name('user.event.update');
