@@ -30,6 +30,9 @@ Route::post('/events_confirm/{id}', 'EventsController@confirm')->name('event.con
 Route::post('/events_finish', 'EventsController@finish')->name('event.finish');
 
 
+Route::get('/profile/{id}', 'TopController@profile')->name('user_profile');
+
+
 
 
 
@@ -56,8 +59,14 @@ Route::post('register/main_register', 'Auth\RegisterController@mainRegister')->n
 //主催者のTOPページ画面
 Route::group(['middleware' => 'auth'], function(){
     Route::get('/user_top', 'User_topController@index');
+
     Route::get('/event_list','User_topController@list');
-    Route::get('/event_profile','User_topController@profile')->name('user.event_profile');
+
+    //プロフィール画面
+    Route::get('/user_profile','User_topController@profile')->name('user.event_profile');
+    Route::post('/user_profile','User_topController@profileUpdate')->name('user.profile.update');
+    
+    
     Route::get('/event_input','User_topController@eventInput');
     Route::post('/event_input_confirm', 'User_topController@eventInputConfirm')->name('event.input.confirm');
 
@@ -69,7 +78,7 @@ Route::group(['middleware' => 'auth'], function(){
     
     //イベントの編集
     Route::get('/user_event_edit/id={id}','User_topController@edit')->name('user.event.edit');
-    Route::post('/user_top','User_topController@update')->name('user.event.update');
+    Route::post('/user_top','User_topController@eventUpdate')->name('user.event.update');
 });
 
 
