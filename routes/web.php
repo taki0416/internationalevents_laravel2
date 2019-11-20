@@ -65,6 +65,9 @@ Route::group(['middleware' => 'auth'], function(){
     //プロフィール画面
     Route::get('/user_profile','User_topController@profile')->name('user.event_profile');
     Route::post('/user_profile','User_topController@profileUpdate')->name('user.profile.update');
+
+    //プロフィール画像
+    Route::POST('/user_profile_image','User_topController@image')->name('user.image');
     
     
     Route::get('/event_input','User_topController@eventInput');
@@ -79,6 +82,12 @@ Route::group(['middleware' => 'auth'], function(){
     //イベントの編集
     Route::get('/user_event_edit/id={id}','User_topController@edit')->name('user.event.edit');
     Route::post('/user_top','User_topController@eventUpdate')->name('user.event.update');
+
+    //イベントのコピー
+    Route::get('/user_event_copy/id={id}','User_topController@copy')->name('user.event.copy');
+
+    //イベントの削除
+    Route::get('/user_event_delete/id={id}','User_topController@delete')->name('user.event.delete');
 });
 
 
