@@ -13,6 +13,7 @@ use Illuminate\Auth\Events\Registered;
 use App\Mail\EmailVerification;
 use Illuminate\Support\Facades\Mail;
 use Carbon\Carbon;
+use Auth;
 
 
 
@@ -78,6 +79,8 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);*/
+        
+    
 
         $user = User::create([
             'email' => $data['email'],
@@ -94,7 +97,23 @@ class RegisterController extends Controller
     public function pre_check(Request $request){
         //$this->validator($request->all())->validate();
         //flash data
-        \Log::debug('デバッグメッセージpre');
+        //\Log::debug('デバッグメッセージpre');
+
+
+        //メールアドレスのバリデーション
+
+        $rules=[
+            'email' => 'required|email|unique:users,email',
+        ];
+
+        $message=[
+            'email.unique' =>'Eメールアドレスすでに使用されています',
+        ];
+
+        $this->validate($request,$rules,$message);
+
+
+
         $request->flashOnly('email');
 
         $bridge_request = $request->all();
@@ -114,6 +133,8 @@ class RegisterController extends Controller
 
     public function showForm($email_token)
     {
+
+
         // 使用可能なトークンか
         if ( !User::where('email_verify_token',$email_token)->exists() )
         {
@@ -140,7 +161,10 @@ class RegisterController extends Controller
 
     public function mainCheck(Request $request)
   {
+
+    
       /*logをいれる
+
       
     $request->validate([
       'name' => 'required|string',
@@ -153,9 +177,13 @@ class RegisterController extends Controller
     $email_token = $request->email_token;
 
     $user = new User();
+    
     $user->name = $request->name;
     $user->name_pronunciation = $request->name_pronunciation;
     $user->sponsor_phone = $request->sponsor_phone;
+
+    var_dump($user);
+
 
     return view('auth.main.register_check', compact('user','email_token'));
   }

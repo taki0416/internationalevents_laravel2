@@ -1,0 +1,42 @@
+
+hr{
+    margin-top:50px;
+    margin-bottom:50px;
+    height:3px;
+}
+
+.eventShow a{
+    margin:0 10px;
+}
+.eventShowtitle{
+    margin-bottom:20px;
+}
+.edit_deleteBox{
+    text-align: center;
+}
+
+.csvExport{
+    text-align: center;
+    margin:30px
+}
+
+.topbtn{
+    text-align:center;
+}
+
+
+.linkcopy{
+    margin-bottom:30px;
+
+}
+
+
+
+.eventdetail a{
+    color: #000000;
+
+}
+
+
+
+

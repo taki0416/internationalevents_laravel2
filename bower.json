@@ -1,0 +1,20 @@
+{
+  "name": "bower install jquery --save",
+  "description": "",
+  "main": "",
+  "authors": [
+    "takiriki <takita.git@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/taki0416/internationalevents_laravel2",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^3.4.1"
+  }
+}
