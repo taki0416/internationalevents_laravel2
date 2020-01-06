@@ -182,7 +182,6 @@ class RegisterController extends Controller
     $user->name_pronunciation = $request->name_pronunciation;
     $user->sponsor_phone = $request->sponsor_phone;
 
-    var_dump($user);
 
 
     return view('auth.main.register_check', compact('user','email_token'));

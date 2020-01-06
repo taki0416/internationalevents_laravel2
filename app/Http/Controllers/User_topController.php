@@ -44,8 +44,6 @@ class User_topController extends Controller
 
             print($image->getRealPath());
 
-
-
         $image2 ->resize(300, 300)->save(public_path('/post_images/'.Auth::id() . '.jpg'));
 
         //$id = Auth::id();
@@ -56,9 +54,6 @@ class User_topController extends Controller
         $user=User::find($id);
         $user->image_url=$image_name;
         $user->save();
-
-
-
 
 
         //$post->image_url = $request->image_url->storeAs('public\post_images', $time.'_'.Auth::id() . '.jpg');

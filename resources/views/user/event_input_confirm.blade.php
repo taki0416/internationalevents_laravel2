@@ -56,7 +56,7 @@
 
 
 
-        <h3>参加者情報入力フォーム</h3>
+        <h3>イベント追加フォーム</h3>
         <form action="{{ route('event.input.confirm')}}" method="post" class="form-horizontal">
         <input type="hidden" name="_token" value="{{ csrf_token() }}">
   

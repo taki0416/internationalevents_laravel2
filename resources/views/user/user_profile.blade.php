@@ -66,7 +66,7 @@
         @if($item->image_url == null)
           <img src="/storage/noimage.png">
         @else
-          <p>画像：<img class="profile_image" src="{{ asset('storage/post_images/'.$item->image_url')}}"></p> 
+        <p>画像：<img class="profile_image" src="{{ asset('/post_images/'.$item->image_url)}}"></p>
         @endif
 
 
@@ -146,22 +146,19 @@
              </div>
           </div>
 
-        <div class="form-group">
-          <div class="col-sm-offset-2 col-sm-10 text-center">
-            <input type="submit" name="button1" value="送信" class="btn btn-primary btn-wide" />
+          <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10 text-center">
+              <input type="submit" name="button1" value="送信" class="btn btn-primary btn-wide" />
+            </div>
           </div>
-        </div>
         </form>
 
 
-        </div>
+      </div>
 
 
     </div>
-    <!-- /#page-content-wrapper -->
-
-  </div>
-  <!-- /#wrapper -->
+    
 
   <!-- Bootstrap core JavaScript -->
   <script src="vendor/jquery/jquery.min.js"></script>

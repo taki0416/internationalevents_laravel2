@@ -265,16 +265,18 @@
         </thead>
 
         <tbody>
-        <tr>
+        
           @foreach($participants as $p)
+          <tr>
           <td>{{ $p -> last_name }}</td>
           <td>{{ $p -> first_name }}</td>
           <td>{{ $p -> name_reading }}</td>
           <td>{{ $p -> sex }}</td>
           <td>{{ $p -> participant_phone }}</td>
           <td>{{ $p -> participant_mail }}</td>
+          </tr>
           @endforeach
-        </tr>
+        
         </tbody>
       </table>
 
